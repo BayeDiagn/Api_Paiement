@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div>
+    <a href="{% url "paytech_payment" %}" class="btn btn-info text-white" style="margin-right:10px">Paytech</a>
+    <a href="{% url "paydunya_payment" %}" class="btn btn-primary ">Paydunya</a>
+</div>
+{% endblock content %}

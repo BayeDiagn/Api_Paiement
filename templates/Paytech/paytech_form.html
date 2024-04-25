@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="card text-bg-info  border-primary " style="width:40rem; height:55vh">
+    <div class="card-header" style="color:white">
+        Formulaire de paiement
+    </div>
+    <div class="card-body ">
+        <form method="Post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="exampleInputitem_name" class="form-label" style="color:white">Nom du produit</label>
+              <input type="text" name="item_name" class="form-control" id="exampleInputitem_name" aria-describedby="emailHelp" required>
+              {% if form.item_name.errors %}
+                <p class="font-weight-light text-danger">{{ form.item_name.errors.0 }}</p>  
+             {% endif %}
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputitem_price" class="form-label" style="color:white">Prix</label>
+              <input type="number" name="item_price" class="form-control" id="exampleInputitem_price" required>
+              {% if form.item_price.errors %}
+                <p class="font-weight-light text-danger">{{ form.item_price.errors.0 }}</p>  
+             {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Payer</button>
+          </form>
+    </div>
+  </div>
+{% endblock content %}
