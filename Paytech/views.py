@@ -34,8 +34,8 @@ def payment_view(request):
             pay_tech.setRefCommand(str(uuid.uuid4()))
             pay_tech.setNotificationUrl({
                 'ipn_url': 'https://192.168.1.10:8000/ipn',
-                'success_url': 'https://192.168.1.10:8000/paytech/payment-done/',
-                'cancel_url': 'https://192.168.1.10:8000/paytech/payment-canceled/',
+                'success_url': 'https://192.168.1.56:8000/paytech/payment-done/',
+                'cancel_url': 'https://192.168.1.56:8000/paytech/payment-canceled/',
             })
             pay_tech.setMobile(False)
         

@@ -1,28 +1,32 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 
 {% block content %}
-<div class="card text-bg-info  border-primary " style="width:40rem; height:60vh">
-    <div class="card-header"style="color:white">
-        Formulaire de paiement
-    </div>
-    <div class="card-body ">
-        <form method="Post">
-            {% csrf_token %}
-            <div class="mb-3">
-              <label for="exampleInputitem_name" class="form-label" style="color:white">Nom du produit</label>
-              <input type="text" name="name" class="form-control" id="exampleInputitem_name" aria-describedby="emailHelp" required >
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputprix_unit" class="form-label" style="color:white">Prix</label>
-              <input type="number" name="prix_unit" class="form-control" id="exampleInputprix_unit" required>
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputquantity" class="form-label" style="color:white">Quantite</label>
-              <input type="number" name="quantity" class="form-control" id="exampleInputquantity" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Payer</button>
-          </form>
-    </div>
+<div class="card border-primary " style="width:40rem; height:60vh">
+  <div class="card-header">
+      Formulaire de paiement
   </div>
+  <div class="card-body ">
+      <form method="Post">
+          {% csrf_token %}
+          <div style="margin-bottom:30px;">
+            <input  type="text" name="nom" class="form-control" id="exampleInputitem_name" placeholder="Nom du produit" autocomplete="off" required>
+          </div>
+          
+          <div style="margin-bottom:30px;"> 
+            <input  type="number" name="prix_unite" class="form-control" placeholder="Prix" autocomplete="off" required>
+          </div>
+          <div style="margin-bottom:30px;">
+            <input  type="number" name="quantite" class="form-control" placeholder="Quantité" autocomplete="off" required>
+          </div>
+          <div style="margin-top:20px;">  
+            <button type="submit" class="btn btn-outline-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Payer</button>
+          <div>
+          </form>
+  </div>
+</div>
+<div style="margin-top:50px;">  
+  <a href="{% url "paytech_payment" %}" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Paytech</a>
+<div>
 {% endblock content %}

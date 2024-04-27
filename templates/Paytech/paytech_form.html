@@ -2,29 +2,30 @@
 
 
 {% block content %}
-<div class="card text-bg-info  border-primary " style="width:40rem; height:55vh">
-    <div class="card-header" style="color:white">
+<div class="card border-primary " style="width:40rem; height:50vh">
+    <div class="card-header" >
         Formulaire de paiement
     </div>
     <div class="card-body ">
         <form method="Post">
             {% csrf_token %}
-            <div class="mb-3">
-              <label for="exampleInputitem_name" class="form-label" style="color:white">Nom du produit</label>
-              <input type="text" name="item_name" class="form-control" id="exampleInputitem_name" aria-describedby="emailHelp" required>
-              {% if form.item_name.errors %}
-                <p class="font-weight-light text-danger">{{ form.item_name.errors.0 }}</p>  
-             {% endif %}
+            <div style="margin-bottom:30px;">
+              <input  type="text" name="item_name" class="form-control" placeholder="Nom du produit" autocomplete="off" required>
             </div>
-            <div class="mb-3">
-              <label for="exampleInputitem_price" class="form-label" style="color:white">Prix</label>
-              <input type="number" name="item_price" class="form-control" id="exampleInputitem_price" required>
+            
+            <div style="margin-bottom:30px;"> 
+              <input  type="number" name="item_price" class="form-control" placeholder="Prix" autocomplete="off" required>
               {% if form.item_price.errors %}
                 <p class="font-weight-light text-danger">{{ form.item_price.errors.0 }}</p>  
-             {% endif %}
+              {% endif %}
             </div>
-            <button type="submit" class="btn btn-primary">Payer</button>
-          </form>
+            <div style="margin-top:20px;">  
+            <button type="submit" class="btn btn-outline-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Payer</button>
+            <div>
+            </form>
     </div>
   </div>
+  <div style="margin-top:50px;">  
+    <a href="{% url "paydunya_payment" %}" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Paydunya</a>
+  <div>
 {% endblock content %}

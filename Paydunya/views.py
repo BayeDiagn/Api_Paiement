@@ -23,9 +23,9 @@ def payment_view(request):
     if request.method == 'POST':
         form = PaydunyaForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            unit_price = form.cleaned_data['prix_unit']
-            quantity = form.cleaned_data['quantity']
+            name = form.cleaned_data['nom']
+            unit_price = form.cleaned_data['prix_unite']
+            quantity = form.cleaned_data['quantite']
 
             total_price = int(quantity)*int(unit_price)
 
